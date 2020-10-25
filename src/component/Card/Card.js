@@ -1,8 +1,9 @@
 import React from 'react'
-import LazyImage from './LazyImage/LazyImage';
 import './Card.scss'
 import { useGetReceipeDetail } from '../../useGet/useGetReceipe';
 import { useHistory } from 'react-router-dom';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import LazyLoad from 'react-lazyload';
 function Card({id,imgUrl,title,summary}) {
   const [getReceipeDetail] = useGetReceipeDetail()
   const history = useHistory()
@@ -17,10 +18,9 @@ function Card({id,imgUrl,title,summary}) {
   }
   return (
     <div onClick={handleDetails} className="Card max-w-xs rounded shadow-2xl cursor-pointer mb-5">
-      <LazyImage
-        src={imgUrl}
-        alt={imgUrl}
-      />
+      <LazyLoad width={200} height={200} placeholder={<LinearProgress color="secondary"/>}>
+        <img className="rounded object-fill" src={imgUrl} alt={imgUrl}/>
+      </LazyLoad> 
       <div className="Card__content p-2">
         <h1 className="text-lg font-bold mt-1">{title}</h1>
         <p dangerouslySetInnerHTML={createMarkupSummary()}/>

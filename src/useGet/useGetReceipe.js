@@ -9,7 +9,7 @@ export function useGetSearchReceipe(){
     Axios({
       method : 'GET',
       url : 'https://api.spoonacular.com/recipes/complexSearch',
-      params : {apiKey : '693426d6f4ac45729a3e0830cb67f181',query:query, addRecipeInformation:true, offset : pageNumber,number : 100}
+      params : {apiKey : '8e81641701dd48b2be1d40f07cc3d34c',query:query, addRecipeInformation:true, offset : pageNumber,number : 100}
     }).then(res=>{
       setLoading(false)
       handleAddReceipe(res.data)
@@ -28,7 +28,7 @@ export function useGetRandomReceipe(){
     Axios({
       method : 'GET',
       url : 'https://api.spoonacular.com/recipes/random',
-      params : {apiKey : '693426d6f4ac45729a3e0830cb67f181',number : 100}
+      params : {apiKey : '8e81641701dd48b2be1d40f07cc3d34c',number : 100}
     }).then(res=>{
       setLoading(false)
       handleAddReceipe(res.data)
@@ -45,7 +45,7 @@ export function useGetReceipeDetail(){
     Axios({
       method : 'GET',
       url : `https://api.spoonacular.com/recipes/${id}/information`,
-      params : {apiKey : '693426d6f4ac45729a3e0830cb67f181'}
+      params : {apiKey : '8e81641701dd48b2be1d40f07cc3d34c'}
     }).then(res=>{
       handleAddReceipeDetail(res.data)
     }).catch(err=>{
