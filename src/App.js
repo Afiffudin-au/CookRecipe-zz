@@ -7,6 +7,7 @@ import {
   Route
 } from "react-router-dom";
 import ReceipeDetail from './component/ReceipeDetail/ReceipeDetail';
+import ResultSearch from './component/ResultSearch/ResultSearch';
 function App() {
   return (
     <Router> 
@@ -14,6 +15,9 @@ function App() {
         <Switch>
           <Route path="/detail">
             <ReceipeDetail/>
+          </Route>
+          <Route path="/resultRecipe">
+            <ResultSearch/>
           </Route>
           <Route path="/">
             <Home/> 

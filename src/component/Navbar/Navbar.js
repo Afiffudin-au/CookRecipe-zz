@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -8,14 +8,17 @@ import { useStylesNavbar } from '../../useStyles/UseStyle';
 import './Navbar.scss'
 import { useGetSearchReceipe } from '../../useGet/useGetReceipe';
 import LoadingSpin from '../Loading/LoadingSpin';
+import { useHistory } from 'react-router-dom';
 function Navbar() {
   const [query,setQuery] = useState('')
   const classes = useStylesNavbar();
   const {getSearchReceipe,loading} = useGetSearchReceipe()
+  const history = useHistory()
   const handleSearch = (e)=>{
     e.preventDefault()
     if(!query) return
     getSearchReceipe(query)
+    history.push('/resultRecipe')
   }
   return (
   <div className={classes.root}>

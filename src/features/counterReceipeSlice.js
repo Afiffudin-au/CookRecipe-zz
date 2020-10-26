@@ -3,8 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 export const counterReceipeSlice = createSlice({
   name: 'Receipe',
   initialState: {
-    receipe: null,
-    receipeDetails : null,
+    receipe: [],
+    receipeDetails : [],
+    recipeResultSearch : []
   },
   reducers: {
     addReceipe: (state,action) => {
@@ -12,11 +13,15 @@ export const counterReceipeSlice = createSlice({
     },
     addReceipeDetail : (state,action)=>{
       state.receipeDetails = action.payload
+    },
+    addRecipeResultSearch : (state,action)=>{
+      state.recipeResultSearch = action.payload
     }
   },
 });
 
-export const { addReceipe,addReceipeDetail } = counterReceipeSlice.actions;
+export const { addReceipe,addReceipeDetail,addRecipeResultSearch } = counterReceipeSlice.actions;
 export const selectReceipe = state => state.receipe.receipe;
 export const selectReceipeDetails = state => state.receipe.receipeDetails;
+export const selectRecipeResultSearch = state=> state.receipe.recipeResultSearch;
 export default counterReceipeSlice.reducer;

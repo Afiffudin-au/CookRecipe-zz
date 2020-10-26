@@ -4,10 +4,16 @@ import { useGetReceipeDetail } from '../../useGet/useGetReceipe';
 import { useHistory } from 'react-router-dom';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import LazyLoad from 'react-lazyload';
+import { useDispatch } from 'react-redux';
+import { addReceipeDetail } from '../../features/counterReceipeSlice';
 function Card({id,imgUrl,title,summary}) {
   const [getReceipeDetail] = useGetReceipeDetail()
   const history = useHistory()
+  const dispatch = useDispatch()
   const handleDetails = ()=>{
+    dispatch(addReceipeDetail({
+      dataReceipeDetails : []
+    }))
     getReceipeDetail(id)
     history.push('/detail')
   }
