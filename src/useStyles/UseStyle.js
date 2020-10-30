@@ -3,7 +3,7 @@ export const useStylesNavbar = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     position : 'sticky',
-    top : 0,
+    top : '0',
     zIndex : 99
   },
   menuButton: {
@@ -15,6 +15,9 @@ export const useStylesNavbar = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
+  },
+  toolbarBackground : {
+    backgroundColor : 'black'
   },
   search: {
     position: 'relative',
@@ -49,7 +52,7 @@ export const useStylesNavbar = makeStyles((theme) => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      width: '20ch',
+      width: '25ch',
       '&:focus': {
         width: '30ch',
       },

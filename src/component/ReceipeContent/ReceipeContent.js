@@ -9,7 +9,7 @@ function ReceipeContent() {
   const receipes = useSelector(selectReceipe)
   const newRecipes = {...receipes?.dataReceipe}
   useEffect(()=>{
-    // getRandomReceipe()
+    getRandomReceipe()
   },[])
   return (
     <>
