@@ -6,11 +6,17 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 function ResultSearch() {
   const resultSearch = useSelector(selectRecipeResultSearch)
   const newResultSearch = {...resultSearch?.dataRecipeResultSearch}
+  const cannotFindResult = newResultSearch.results?.length === 0
   return (
     <>
       <div className="sticky top-0">
         {
           resultSearch.loading && <LinearProgress color="secondary"/>
+        }
+      </div>
+      <div>
+        {
+          cannotFindResult && <h1 className="text-2xl text-gray-900 uppercase">Sorry we cannot find</h1>
         }
       </div>
       <div className="grid p-2 mt-2 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 xl2:grid-cols-5 xl3:grid-cols-6">

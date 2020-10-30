@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import ReceipeDetail from './component/ReceipeDetail/ReceipeDetail';
 import ResultSearch from './component/ResultSearch/ResultSearch';
+import Navbar from './component/Navbar/Navbar';
 function App() {
   return (
     <Router> 
@@ -17,6 +18,7 @@ function App() {
             <ReceipeDetail/>
           </Route>
           <Route path="/resultRecipe">
+            <Navbar/>
             <ResultSearch/>
           </Route>
           <Route path="/">
