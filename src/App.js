@@ -15,6 +15,7 @@ function App() {
       <div className="App">
         <Switch>
           <Route path="/detail">
+            <Navbar/>
             <ReceipeDetail/>
           </Route>
           <Route path="/resultRecipe">

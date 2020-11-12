@@ -7,7 +7,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import { useStylesNavbar } from '../../useStyles/UseStyle';
 import './Navbar.scss'
 import { useGetSearchReceipe } from '../../useGet/useGetReceipe';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 function Navbar() {
   const [query,setQuery] = useState('')
   const classes = useStylesNavbar();
@@ -15,7 +15,10 @@ function Navbar() {
   const history = useHistory()
   const handleSearch = (e)=>{
     e.preventDefault()
-    if(!query) return
+    const userText = query.replace(/^\s+/, '').replace(/\s+$/, '');
+    if(userText === ''){
+      return
+    }
     getSearchReceipe(query)
     history.push('/resultRecipe')
   }
@@ -23,9 +26,11 @@ function Navbar() {
   <div className={classes.root}>
     <AppBar position="static">
       <Toolbar>
-        <Typography className={classes.title} variant="h6" noWrap>
-          CookReceipe-ZZ
-        </Typography>
+          <Typography className={classes.title} variant="h6" noWrap>
+           <Link to="/">
+            CookReceipe-ZZ
+            </Link>
+          </Typography>
       <div className={classes.search}>
           <div className={classes.searchIcon}>
             <SearchIcon />
