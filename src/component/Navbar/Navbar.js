@@ -6,12 +6,12 @@ import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import { useStylesNavbar } from '../../useStyles/UseStyle';
 import './Navbar.scss'
-import { useGetSearchReceipe } from '../../useGet/useGetReceipe';
+import { useReceipe } from '../../useGet/useReceipe';
 import { useHistory, Link } from 'react-router-dom';
 function Navbar() {
   const [query,setQuery] = useState('')
   const classes = useStylesNavbar();
-  const {getSearchReceipe} = useGetSearchReceipe()
+  const {getSearchReceipe} = useReceipe()
   const history = useHistory()
   const handleSearch = (e)=>{
     e.preventDefault()

@@ -1,13 +1,13 @@
 import React from 'react'
 import './Card.scss'
-import { useGetReceipeDetail } from '../../useGet/useGetReceipe';
 import { useHistory } from 'react-router-dom';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import LazyLoad from 'react-lazyload';
 import { useDispatch } from 'react-redux';
 import { addReceipeDetail } from '../../features/counterReceipeSlice';
+import { useReceipeDetail } from '../../useGet/useReceipeDetail';
 function Card({id,imgUrl,title,summary}) {
-  const [getReceipeDetail] = useGetReceipeDetail()
+  const {getReceipeDetail} = useReceipeDetail()
   const history = useHistory()
   const dispatch = useDispatch()
   const handleDetails = ()=>{
@@ -17,6 +17,7 @@ function Card({id,imgUrl,title,summary}) {
     getReceipeDetail(id)
     history.push('/detail')
   }
+  console.log("render")
   const createMarkupSummary = () => {
     return {
        __html: summary.slice(-summary.length,210) + '...'

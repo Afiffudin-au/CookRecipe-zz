@@ -1,13 +1,14 @@
 import React,{useEffect} from 'react'
 import Card from '../Card/Card'
-import { useGetRandomReceipe } from '../../useGet/useGetReceipe'
+import { useReceipe } from '../../useGet/useReceipe'
 import { useSelector } from 'react-redux'
 import { selectReceipe } from '../../features/counterReceipeSlice'
 import Loading from '../Loading/Loading'
 function ReceipeContent() {
-  const {getRandomReceipe,loading} = useGetRandomReceipe()
+  const {getRandomReceipe} = useReceipe()
   const receipes = useSelector(selectReceipe)
   const newRecipes = {...receipes?.dataReceipe}
+  const loading = receipes.loading
   useEffect(()=>{
     getRandomReceipe()
   },[])

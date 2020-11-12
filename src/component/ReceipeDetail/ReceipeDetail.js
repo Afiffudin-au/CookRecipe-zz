@@ -3,9 +3,11 @@ import { useSelector } from 'react-redux'
 import { selectReceipeDetails } from '../../features/counterReceipeSlice'
 import LayzImageDetail from './LayzImageDetail/LayzImageDetail'
 import './ReceipeDetail.scss'
+import { LinearProgress } from '@material-ui/core'
 function ReceipeDetail() {
   const receipeDetail = useSelector(selectReceipeDetails)
   const detail = {...receipeDetail?.dataReceipeDetails}
+  const loading = receipeDetail.loading
   const createMarkupInstructions = () => {
     return {
        __html: detail.instructions  
@@ -18,6 +20,11 @@ function ReceipeDetail() {
   }
   return (
     <div className="detailReceipe mx-auto sm:w-8/12">
+      <div>
+        {
+          loading && <LinearProgress color="secondary"/>
+        }
+      </div>
       <LayzImageDetail
        src={detail.image}
        alt={detail.image}
